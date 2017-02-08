@@ -1,12 +1,21 @@
 {
   "name": "woowahan-cli",
   "version": "1.0.0",
-  "description": "",
-  "main": "",
+  "description": "A simple CLI for scaffolding WoowahanJS projects",
+  "preferGlobal": true,
+  "main": "cli/index.js",
   "bin": {
-    "woowahan-cli": "./bin/woowahan"
+    "woowahan-cli": "./bin/woowahan-cli"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "woowahanjs",
+    "cli",
+    "scaffolding"
+  ],
+  "bugs": {
+    "url": "https://github.com/woowabros/woowahan-cli/issues"
+  },
+  "homepage": "https://github.com/woowabros/woowahan-cli#readme",
+  "author": "Woowabros",
+  "license": "MIT"
 }
