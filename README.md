@@ -98,6 +98,7 @@ npm run build
 
 ```
 App
+|- dist
 |- node_modules
 |- src
 	|-- actions
