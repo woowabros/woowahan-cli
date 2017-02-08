@@ -1,0 +1,12 @@
+{
+  "name": "woowahan-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "bin": {
+    "woowahan-cli": "./bin/woowahan"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

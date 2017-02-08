@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+'use strict';
+
+process.title = 'woowahan-cli';
+
+const cli = require('../cli');
+const currentPath = process.cwd()
+
+let option = {
+	cliArgs: process.argv.slice(2),
+	currentPath,
+	inputStream: process.stdin,
+  outputStream: process.stdout,
+  errorStream: process.stderr
+}
+
+cli(option);
