@@ -4,7 +4,7 @@
 var program = require('commander');
 
 program
-	.usage('[project-name] <option>')
+	.usage('[project-name] {option : git template name}')
 	.parse(process.argv);
 
 var path = require('path');
@@ -17,9 +17,14 @@ var projectPath = path.resolve(to, projectName);
 var cliPath = path.resolve(__dirname, '..');
 var packageJson = require('../lib/packageJson');
 var ora = require('ora');
-// var shell = require('shelljs');
 var exec = require('exec');
-var recursive = require('recursive-readdir');
+var recursiveReadDirectory = require('recursive-readdir');
+
+program.on('--help' , function() {
+	console.log();
+	console.log();
+	console.log();
+});
 
 if(exists(to)) {
 	var templatePath = path.resolve(cliPath, 'templates/app');
@@ -63,11 +68,9 @@ if(exists(to)) {
 
 				try{
 					
-					// 파일리스트
-					recursive(templatePath, function (err, files) {
+					recursiveReadDirectory(templatePath, function (err, files) {
 						var filesLength = files.length;
 
-						// 파일리스트 출력
 						for(var cnt =0; cnt < filesLength; cnt++) {
 							var file = files[cnt].replace(templatePath+'/' , '');
 
@@ -75,13 +78,10 @@ if(exists(to)) {
 						}
 						console.log();
 
-						// 파일 복사
 						fs.copySync(templatePath, projectPath);
 
-						// package.json 파일 생성
 						fs.writeJsonSync(targetPackage, customPackageObj);
 
-						// npm install
 						spinner.start();
 						process.chdir(projectPath);
 
@@ -94,19 +94,6 @@ if(exists(to)) {
 							console.log(chalk.cyan('Successfully Installed!'));
 							console.log();
 						});
-
-
-						// shell
-						// 	.cd(projectPath)
-						// 	.exec('npm install -s', {async: true}, function() {
-						// 		spinner.stop();	
-						// 		console.log();
-						// 		console.log(chalk.cyan('Successfully Installed!'));
-						// 		console.log();
-						// 	})
-						// 	.stderr.on('data', function(data) {
-						// 		console.log(chalk.yellow(data));
-						// 	});
 
 					});
 				} catch(err) {

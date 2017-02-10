@@ -6,6 +6,7 @@ require('commander')
 	.usage('<command> [options]')
 	.command('new', 'generate a new project')
 	.command('init', 'generate a new project current folder')
+	.command('test', 'generate a new project current folder')
 	.parse(process.argv);
 
 
