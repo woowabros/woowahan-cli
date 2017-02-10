@@ -1,17 +1,11 @@
 #!/usr/bin/env node
 'use strict';
 
-process.title = 'woowahan-cli';
+require('commander')
+	.version(require('../package').version)
+	.usage('<command> [options]')
+	.command('new', 'generate a new project')
+	.command('init', 'generate a new project current folder')
+	.parse(process.argv);
 
-const cli = require('../cli');
-const currentPath = process.cwd()
 
-let option = {
-	cliArgs: process.argv.slice(2),
-	currentPath,
-	inputStream: process.stdin,
-  outputStream: process.stdout,
-  errorStream: process.stderr
-}
-
-cli(option);

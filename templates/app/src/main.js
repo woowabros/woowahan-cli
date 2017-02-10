@@ -6,9 +6,6 @@ import Posts from './reducers/posts';
 
 global.$ = global.jQuery = Woowahan.$;
 
-require("./sass/style.scss");
-require('bootstrap-loader');
-
 const app = new Woowahan();
 
 app.use(Posts);
