@@ -29,7 +29,7 @@ program.on('--help' , function() {
 if(exists(to)) {
 	var templatePath = path.resolve(cliPath, 'templates/app');
 	
-	packageJson()
+	packageJson(projectName)
 		.then(function(result) {
 			var customPackageObj = result;
 			var targetPackage  = path.resolve(projectPath , 'package.json');
