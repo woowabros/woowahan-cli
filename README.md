@@ -7,8 +7,6 @@ Woowahan.js의 command line utility 입니다.
 ## 구성요소
 - Webpack
 - Babel
-- bootstrap
-- sass
 
 ## 설치 
 
@@ -52,25 +50,30 @@ woowahan-cli init YourAppName
 ```
 App
 |- node_modules
-|- src
-	|-- actions
-		  |-- index.js
-	|-- layouts
-		  |-- layout.js
-		  `-- layout.hbs
-	|-- reducers
-		  |-- posts.js
-	|-- sass
-		  |-- style.scss
-	|-- views
-		  |-- home
-		  		|-- index.js
-		  		`-- index.hbs
-		  |-- posts		  
-		  		|-- index.js
-		  		`-- index.hbs		  
-	|-- index.html
-	|-- main.js
+|- actions
+	  |-- index.js
+|- assets
+		|-- css
+  			|-- default.scss
+|- layouts
+	  |-- default.js
+	  `-- default.hbs
+|- reducers
+	  |-- idnex.js
+	  |-- posts.js
+	  |-- toolbox.js
+|- views
+	  |-- home
+	  		|-- index.js
+	  		`-- index.hbs
+	  |-- posts
+	  		|-- row-items		  
+	  				|-- index.js
+	  				`-- index.hbs
+	  		|-- index.js
+	  		`-- index.hbs		  
+|-- index.html
+|-- main.js
 |- .babelrc
 |- .gitignore
 |- package.json
@@ -100,25 +103,30 @@ npm run build
 App
 |- dist
 |- node_modules
-|- src
-	|-- actions
-		  |-- index.js
-	|-- layouts
-		  |-- layout.js
-		  `-- layout.hbs
-	|-- reducers
-		  |-- posts.js
-	|-- sass
-		  |-- style.scss
-	|-- views
-		  |-- home
-		  		|-- index.js
-		  		`-- index.hbs
-		  |-- posts		  
-		  		|-- index.js
-		  		`-- index.hbs		  
-	|-- index.html
-	|-- main.js
+|- actions
+	  |-- index.js
+|- assets
+		|-- css
+  			|-- default.scss
+|- layouts
+	  |-- default.js
+	  `-- default.hbs
+|- reducers
+	  |-- idnex.js
+	  |-- posts.js
+	  |-- toolbox.js
+|- views
+	  |-- home
+	  		|-- index.js
+	  		`-- index.hbs
+	  |-- posts
+	  		|-- row-items		  
+	  				|-- index.js
+	  				`-- index.hbs
+	  		|-- index.js
+	  		`-- index.hbs		  
+|-- index.html
+|-- main.js
 |- .babelrc
 |- .gitignore
 |- package.json
