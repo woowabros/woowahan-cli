@@ -8,6 +8,9 @@ global.$ = global.jQuery = Woowahan.$;
 
 const app = new Woowahan();
 
+require('bootstrap-sass');
+require('./sass/style.scss');
+
 app.use(Posts);
 
 app.use(Woowahan.Layout('#app', LayoutView));

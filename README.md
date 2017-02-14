@@ -45,7 +45,7 @@ woowahan-cli new YourAppName
 ```
 mkdir yourFolder
 cd yourFolder
-woowahan-cli new YourAppName
+woowahan-cli init YourAppName
 ```
  
 ##### 프로젝트 생성시 기본구조 (new, init)
