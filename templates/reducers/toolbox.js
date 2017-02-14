@@ -1,5 +1,8 @@
 export const ajax = {
-  get: (reducerContext, url, options) => requestor(reducerContext, 'get', url, options)
+  'get': (reducerContext, url, options) => requestor(reducerContext, 'get', url, options),
+  'put': (reducerContext, url, options) => requestor(reducerContext, 'put', url, options),
+  'post': (reducerContext, url, options) => requestor(reducerContext, 'post', url, options),
+  'delete': (reducerContext, url, options) => requestor(reducerContext, 'delete', url, options),
 };
 
 function requestor(reducerContext, method, url, options = {}) {
