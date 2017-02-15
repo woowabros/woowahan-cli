@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var copy = require('copy-webpack-plugin');
 
 module.exports = {
-  devtool: 'cheap-source-map',
+  devtool: 'eval',
   entry: ['./main.js'],
   output: {
     path: path.join(__dirname, 'dist'),
@@ -13,21 +13,12 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loaders: ['style-loader', 'css-loader'],
-      },
-      {
         test: /\.js$/,
         exclude: [/node_modules/],
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['es2015', {moduels: false}]
-            ]
-          }
-        }]
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       },
       {
         test: /\.hbs$/,
@@ -37,17 +28,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        screw_ie8: true,
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-    }),
-
     new copy([
       { from: 'assets' }
     ], { copyUnmodified: false }),
@@ -58,4 +38,4 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
   ]
-}
+};
