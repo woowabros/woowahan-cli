@@ -2,7 +2,6 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var copy = require('copy-webpack-plugin');
 var isProduction = process.env.NODE_ENV === 'production';
-var webpackConfigCommon = require('./webpack.config.common');
 
 module.exports = function() {
   if(isProduction) {
