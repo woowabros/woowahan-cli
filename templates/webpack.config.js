@@ -12,8 +12,8 @@ module.exports = function() {
 }
 
 function production() {
-  return webpackConfigCommon.merge(
-    webpackConfigCommon.config,
+  return merge(
+    commonConfig,
     {
       plugins: [
         new webpack.DefinePlugin({
@@ -47,8 +47,8 @@ function production() {
 }
 
 function development() {
-  return webpackConfigCommon.merge(
-    webpackConfigCommon.config,
+  return merge(
+    commonConfig,
     {
        plugins: [
          new webpack.DefinePlugin({
@@ -69,3 +69,43 @@ function development() {
      }
   );
 }
+
+var commonConfig = {
+  devtool: isProduction ? 'cheap-module-source-map' : 'inline-source-map',
+  entry: ['./main.js'],
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: [/node_modules/],
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
+      },
+      {
+        test: /\.hbs$/,
+        exclude: /node_modules/,
+        loader: 'handlebars-loader',
+      },
+    ],
+  }
+};
+
+function merge() {
+  var obj = {}, argsCnt = arguments.length, key;
+
+  for(var i = 0; i < argsCnt; i++) {
+    for(key in arguments[i]) {
+      if (arguments[i].hasOwnProperty(key)) {
+          obj[key] = arguments[i][key];
+      }
+    }
+  }
+  return obj;
+}
+
