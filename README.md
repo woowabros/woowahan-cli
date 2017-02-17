@@ -2,13 +2,12 @@
 
 Woowahan.js의 command line utility 입니다.
 
->> woowahan-cli를 사용하기 위해서는 nodejs, npm 이 설치되어있어야 합니다.
+> woowahan-cli를 사용하기 위해서는 nodejs, npm 이 설치되어있어야 합니다.
 
 ## 구성요소
+- WoowahanJS
 - Webpack
 - Babel
-- bootstrap
-- sass
 
 ## 설치 
 
@@ -45,34 +44,39 @@ woowahan-cli new YourAppName
 ```
 mkdir yourFolder
 cd yourFolder
-woowahan-cli new YourAppName
+woowahan-cli init YourAppName
 ```
  
 ##### 프로젝트 생성시 기본구조 (new, init)
 ```
 App
 |- node_modules
-|- src
-	|-- actions
-		  |-- index.js
-	|-- layouts
-		  |-- layout.js
-		  `-- layout.hbs
-	|-- reducers
-		  |-- posts.js
-	|-- sass
-		  |-- style.scss
-	|-- views
-		  |-- home
-		  		|-- index.js
-		  		`-- index.hbs
-		  |-- posts		  
-		  		|-- index.js
-		  		`-- index.hbs		  
-	|-- index.html
-	|-- main.js
+|- actions
+	  |-- index.js
+|- assets
+		|-- css
+  			|-- default.scss
+|- layouts
+	  |-- default.js
+	  `-- default.hbs
+|- reducers
+	  |-- idnex.js
+	  |-- posts.js
+	  |-- toolbox.js
+|- views
+	  |-- home
+	  		|-- index.js
+	  		`-- index.hbs
+	  |-- posts
+	  		|-- row-items		  
+	  		|		|-- index.js
+	  		|		`-- index.hbs
+	  		|-- index.js
+	  		`-- index.hbs		  
+|-- index.html
+|-- main.js
 |- .babelrc
-|- .gitignore
+|- README.md
 |- package.json
 |- webpack.config.js
 ```
@@ -99,28 +103,37 @@ npm run build
 ```
 App
 |- dist
+	  |-- bundle.js
+	  |-- css
+	  		|-- default.css
+	  |-- index.html
 |- node_modules
-|- src
-	|-- actions
-		  |-- index.js
-	|-- layouts
-		  |-- layout.js
-		  `-- layout.hbs
-	|-- reducers
-		  |-- posts.js
-	|-- sass
-		  |-- style.scss
-	|-- views
-		  |-- home
-		  		|-- index.js
-		  		`-- index.hbs
-		  |-- posts		  
-		  		|-- index.js
-		  		`-- index.hbs		  
-	|-- index.html
-	|-- main.js
+|- actions
+	  |-- index.js
+|- assets
+		|-- css
+  			|-- default.scss
+|- layouts
+	  |-- default.js
+	  `-- default.hbs
+|- reducers
+	  |-- idnex.js
+	  |-- posts.js
+	  |-- toolbox.js
+|- views
+	  |-- home
+	  		|-- index.js
+	  		`-- index.hbs
+	  |-- posts
+	  		|-- row-items		  
+	  		|		|-- index.js
+	  		|		`-- index.hbs
+	  		|-- index.js
+	  		`-- index.hbs		  
+|-- index.html
+|-- main.js
 |- .babelrc
-|- .gitignore
+|- README.md
 |- package.json
 |- webpack.config.js
 ```
