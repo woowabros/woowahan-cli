@@ -2,9 +2,10 @@
 
 Woowahan.js의 command line utility 입니다.
 
->> woowahan-cli를 사용하기 위해서는 nodejs, npm 이 설치되어있어야 합니다.
+> woowahan-cli를 사용하기 위해서는 nodejs, npm 이 설치되어있어야 합니다.
 
 ## 구성요소
+- WoowahanJS
 - Webpack
 - Babel
 
@@ -68,14 +69,14 @@ App
 	  		`-- index.hbs
 	  |-- posts
 	  		|-- row-items		  
-	  				|-- index.js
-	  				`-- index.hbs
+	  		|		|-- index.js
+	  		|		`-- index.hbs
 	  		|-- index.js
 	  		`-- index.hbs		  
 |-- index.html
 |-- main.js
 |- .babelrc
-|- .gitignore
+|- README.md
 |- package.json
 |- webpack.config.js
 ```
@@ -102,6 +103,10 @@ npm run build
 ```
 App
 |- dist
+	  |-- bundle.js
+	  |-- css
+	  		|-- default.css
+	  |-- index.html
 |- node_modules
 |- actions
 	  |-- index.js
@@ -121,14 +126,14 @@ App
 	  		`-- index.hbs
 	  |-- posts
 	  		|-- row-items		  
-	  				|-- index.js
-	  				`-- index.hbs
+	  		|		|-- index.js
+	  		|		`-- index.hbs
 	  		|-- index.js
 	  		`-- index.hbs		  
 |-- index.html
 |-- main.js
 |- .babelrc
-|- .gitignore
+|- README.md
 |- package.json
 |- webpack.config.js
 ```
