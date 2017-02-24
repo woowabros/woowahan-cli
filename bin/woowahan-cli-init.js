@@ -7,14 +7,13 @@ var chalk = require('chalk');
 var manifestManager = require('../lib/manifest-manager');
 var currentDirectories = process.cwd().split('/');
 var CLI = require('../lib/cli-task');
-
-program
-  .usage('[project-name] <option>')
-	.parse(process.argv);
-
 var CLIConfig = {};
 
-CLIConfig.projectName = currentDirectories[currentDirectories.length-1];
+program
+  .usage('project-name')
+	.parse(process.argv);
+
+CLIConfig.projectName = currentDirectories[currentDirectories.length - 1];
 CLIConfig.projectPath = path.resolve('.');
 
 Promise

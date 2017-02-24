@@ -1,52 +1,35 @@
 #!/usr/bin/env node
 'use strict';
 
+var VIEW_NAME = 0;
 var program = require('commander');
 var path = require('path');
 var fs = require('fs');
 var chalk = require('chalk');
 var viewGenerator = require('../lib/view-generator');
-var isCollectionView = false;
-const VIEW_NAME = 0;
-var VIEWConfig = {};
+var viewConfig = {};
+var hasPackageJson = fs.existsSync(path.resolve('.', 'package.json'));
+var hasViewDirectory = fs.existsSync(path.resolve('.', 'views'));
 
 program
-  .usage('[view-name] <option>')
+  .usage('view-name <option>')
   .option('-c, --collection', 'generate a collection view')
   .parse(process.argv);
 
-VIEWConfig.viewName = program.args[VIEW_NAME];
-VIEWConfig.appRootPath = getAppRootPath(path.resolve('.'));
-VIEWConfig.viewPath = path.resolve(VIEWConfig.appRootPath, 'views/'+ VIEWConfig.viewName);
-VIEWConfig.isCollectionView = isCollectionView;
+if (!hasPackageJson && !hasViewDirectory) {
+	console.log();
+	console.log(chalk.red('Change the current working directory to root of your project.'));
+	console.log();
 
-if(program.args.collection) {
-	VIEWConfig.isCollectionView = true;
-}
-if(VIEWConfig.appRootPath === "") {
-	return console.log(chalk.red('Change your current working directory.'));
+	process.exit();
 }
 
-Promise.resolve(VIEWConfig)
-	.then(viewGenerator.beforeGenerating)
-	.then(viewGenerator.startGenerating)
-	.then(viewGenerator.endGenerating)
+viewConfig.viewName = program.args[VIEW_NAME];
+viewConfig.viewPath = path.resolve('.', 'views', viewConfig.viewName);
+viewConfig.viewType = 'default';
 
-function getAppRootPath(currentPath) {
-	if(process.env.HOME === currentPath) return '';
-
-	var packageJson = path.resolve(currentPath, 'package.json');
-	
-	if(fs.existsSync(packageJson)) {
-		var config = require(packageJson);
-
-		if(currentPath.split('/').pop() === config.name) {
-			return currentPath;
-		}
-	}else {
-		var currentPathArr = currentPath.split('/');
-
-		currentPathArr.pop();
-		return getAppRootPath(currentPathArr.join('/'))
-	}
+if (program.collection) {
+	viewConfig.viewType =	'collection';
 }
+
+viewGenerator(viewConfig);

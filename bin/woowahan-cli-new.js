@@ -1,24 +1,18 @@
 #!/usr/bin/env node
 'use strict';
 
+const PROJECT_NAME = 0;
 var path = require('path');
 var fs = require('fs');
 var program = require('commander');
 var chalk = require('chalk');
 var manifestManager = require('../lib/manifest-manager');
 var CLI = require('../lib/cli-task');
-
-const PROJECT_NAME = 0;
-
-program
-	.usage('[project-name] {option : git template name}')
-	.parse(process.argv);
-
 var CLIConfig = {};
 
-CLIConfig.projectName = program.args[PROJECT_NAME];
-CLIConfig.projectPath = path.resolve('.', CLIConfig.projectName);
-
+program
+	.usage('project-name')
+	.parse(process.argv);
 
 if (fs.existsSync(path.resolve(__dirname, CLIConfig.projectName))) {
   console.log();
@@ -27,6 +21,9 @@ if (fs.existsSync(path.resolve(__dirname, CLIConfig.projectName))) {
 
   process.exit();
 }
+
+CLIConfig.projectName = program.args[PROJECT_NAME];
+CLIConfig.projectPath = path.resolve('.', CLIConfig.projectName);
 
 Promise.resolve(CLIConfig)
   .then(manifestManager)

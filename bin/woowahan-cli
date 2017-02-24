@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 'use strict';
+
 var program = require('commander');
 var manifest = require('../package.json');
 
 program
 	.version(manifest.version)
-	.usage('<command> [options]')
+	.usage('command <options>')
 	.command('new', 'generate a new project')
 	.command('init', 'generate a new project current folder')
 	.command('view', 'generate a new view')
