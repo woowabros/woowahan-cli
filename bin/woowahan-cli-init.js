@@ -23,7 +23,6 @@ Promise
   .then(CLI.readTemplateFiles)
   .then(CLI.writeTemplateFiles)
   .then(CLI.npmInstall)
-  .then(CLI.finishWork)
   .catch(function(err) {
     console.error(chalk.yellow(err));
   });

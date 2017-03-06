@@ -14,6 +14,9 @@ program
 	.usage('project-name')
 	.parse(process.argv);
 
+CLIConfig.projectName = program.args[PROJECT_NAME];
+CLIConfig.projectPath = path.resolve('.', CLIConfig.projectName);
+
 if (fs.existsSync(path.resolve(__dirname, CLIConfig.projectName))) {
   console.log();
   console.log(chalk.red(CLIConfig.projectName + ' is already existed.'));
@@ -22,8 +25,6 @@ if (fs.existsSync(path.resolve(__dirname, CLIConfig.projectName))) {
   process.exit();
 }
 
-CLIConfig.projectName = program.args[PROJECT_NAME];
-CLIConfig.projectPath = path.resolve('.', CLIConfig.projectName);
 
 Promise.resolve(CLIConfig)
   .then(manifestManager)
@@ -31,7 +32,6 @@ Promise.resolve(CLIConfig)
   .then(CLI.readTemplateFiles)
   .then(CLI.writeTemplateFiles)
   .then(CLI.npmInstall)
-  .then(CLI.finishWork)
   .catch(function(err) {
     console.error(chalk.yellow(err));
   });
