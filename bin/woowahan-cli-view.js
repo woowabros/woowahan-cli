@@ -5,7 +5,8 @@ var VIEW_NAME = 0;
 var program = require('commander');
 var path = require('path');
 var generator = require('../lib/generate');
-var utils = require('../lib/utilities');
+var validate = require('../lib/validate');
+var ui = require('../lib/ui');
 var viewConfig = {};
 
 program
@@ -13,7 +14,10 @@ program
   .option('-c, --collection', 'generate a collection view')
   .parse(process.argv);
 
-utils.checkIsRootofProject();
+if (!validate.isProjectRoot()) {
+	ui.error(chalk.red('Change the current working directory to root of your project.'));
+	process.exit();
+}
 
 viewConfig.name = program.args[VIEW_NAME];
 viewConfig.path = path.resolve('.', 'views', viewConfig.name);

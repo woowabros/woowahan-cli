@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 'use strict';
 
-const PROJECT_NAME = 0;
+var PROJECT_NAME = 0;
 var path = require('path');
-var fs = require('fs');
 var program = require('commander');
 var chalk = require('chalk');
 var manifestManager = require('../lib/manifest-manager');
+var validate = require('../lib/validate');
+var ui = require('../lib/ui');
 var CLI = require('../lib/cli-task');
 var CLIConfig = {};
 
@@ -17,14 +18,20 @@ program
 CLIConfig.projectName = program.args[PROJECT_NAME];
 CLIConfig.projectPath = path.resolve('.', CLIConfig.projectName);
 
-if (fs.existsSync(path.resolve(__dirname, CLIConfig.projectName))) {
-  console.log();
-  console.log(chalk.red(CLIConfig.projectName + ' is already existed.'));
-  console.log();
+if (validate.hasUpperCase(CLIConfig.projectName)) {
+  var messages = [
+    `Could not create a project called ${chalk.red(CLIConfig.projectName)} because of npm naming restrictions:`,
+    chalk.red('* name can no longer contain capital letters')
+  ];
 
+  ui.error(messages);
   process.exit();
 }
 
+if (validate.isExist(CLIConfig.projectPath)) {
+  ui.error(chalk.red(CLIConfig.projectName + ' is already existed.'));
+  process.exit();
+}
 
 Promise.resolve(CLIConfig)
   .then(manifestManager)

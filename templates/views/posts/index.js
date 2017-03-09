@@ -21,6 +21,6 @@ export const PostsView = Woowahan.CollectionView.create('PostsView', {
       return;
     }
 
-  	this.reload(data);
+  	this.reload(data, { uid: 'userId', reset: true, reverse: true });
   }
 });
