@@ -1,7 +1,7 @@
 const buildConfig = {
 	appBaseTemplate: './index.hbs',
 	buildTargetDirectory: 'dist',
-	buildEntryFile: './main.js'
+	buildEntryFile: [ './main.js' ]
 };
 
 module.exports = {

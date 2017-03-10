@@ -29,7 +29,7 @@ if (validate.hasUpperCase(CLIConfig.projectName)) {
 }
 
 if (validate.isExist(CLIConfig.projectPath)) {
-  ui.error(chalk.red(CLIConfig.projectName + ' is already existed.'));
+  ui.error(chalk.red(`'${CLIConfig.projectName}' exist!`));
   process.exit();
 }
 
