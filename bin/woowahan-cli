@@ -7,8 +7,8 @@ var manifest = require('../package.json');
 program
 	.version(manifest.version)
 	.usage('command <options>')
-	.command('new', 'woowahan-cli new AppName')
-	.command('init', 'woowahan-cli init')
-	.command('view', 'woowahan-cli view viewName < -c , --collection>')
-	.command('reducer', 'woowahan-cli reducer reducerName <ActionName>')
+	.command('new', 'Generate Woowahan App')
+	.command('init', 'Generate Woowahan App in current directory.')
+	.command('view', 'Generate Woowahan views.')
+	.command('reducer', 'Generate Woowahan reducer & action.')
 	.parse(process.argv);
