@@ -8,6 +8,7 @@ Woowahan.js의 command line utility 입니다.
 - WoowahanJS
 - Webpack
 - Babel
+- Bootstrap
 
 ## 설치 
 
@@ -47,32 +48,62 @@ cd yourFolder
 woowahan-cli init YourAppName
 ```
  
+#### 3. view
+
+뷰 생성
+
+
+```
+woowahan-cli view viewName < option >
+``` 
+
+option :
+  - no-option : 기본 뷰 생성
+  - -c, --collection : 콜렉션뷰 생성
+ 
+#### 4. reducer
+
+리듀서 생성
+
+```
+woowahan-cli reducer reducerName actionName
+```
+
+ 
 ##### 프로젝트 생성시 기본구조 (new, init)
 ```
 App
-|- node_modules
 |- actions
 	  |-- index.js
 |- assets
-		|-- css
-  			|-- default.scss
+    |-- css
+        |-- default.scss
+        |-- bootstrap.3.3.7.min.scss
+    |-- images
+        |-- icon.jpg
+|- config
+    |-- common.js
+    |-- development.js
+    |-- index.js
+    |-- production.js
 |- layouts
-	  |-- default.js
-	  `-- default.hbs
+    |-- default.js
+    `-- default.hbs
+|- node_modules
 |- reducers
-	  |-- idnex.js
-	  |-- posts.js
-	  |-- toolbox.js
+    |-- idnex.js
+    |-- posts.js
+    |-- toolbox.js
 |- views
 	  |-- home
-	  		|-- index.js
-	  		`-- index.hbs
+        |-- index.js
+        `-- index.hbs
 	  |-- posts
-	  		|-- row-items		  
-	  		|		|-- index.js
-	  		|		`-- index.hbs
-	  		|-- index.js
-	  		`-- index.hbs		  
+        |-- row-items		  
+        |		|-- index.js
+        |		`-- index.hbs
+        |-- index.js
+        `-- index.hbs		  
 |-- index.html
 |-- main.js
 |- .babelrc
@@ -103,43 +134,54 @@ npm run build
 ```
 App
 |- dist
-	  |-- bundle.js
-	  |-- css
-	  		|-- default.css
-	  |-- index.html
-|- node_modules
-|- actions
-	  |-- index.js
-|- assets
-		|-- css
-  			|-- default.scss
-|- layouts
-	  |-- default.js
-	  `-- default.hbs
-|- reducers
-	  |-- idnex.js
-	  |-- posts.js
-	  |-- toolbox.js
-|- views
-	  |-- home
-	  		|-- index.js
-	  		`-- index.hbs
-	  |-- posts
-	  		|-- row-items		  
-	  		|		|-- index.js
-	  		|		`-- index.hbs
-	  		|-- index.js
-	  		`-- index.hbs		  
-|-- index.html
-|-- main.js
-|- .babelrc
-|- README.md
-|- package.json
-|- webpack.config.js
+    |-- css
+        |-- default.scss
+        |-- bootstrap.3.3.7.min.scss
+    |-- images
+        |-- icon.jpg
+    |-- bundle.js
+    |-- index.html
+    |- actions
+    	  |-- index.js
+    |- assets
+        |-- css
+            |-- default.scss
+            |-- bootstrap.3.3.7.min.scss
+        |-- images
+            |-- icon.jpg
+    |- config
+        |-- common.js
+        |-- development.js
+        |-- index.js
+        |-- production.js
+    |- layouts
+        |-- default.js
+        `-- default.hbs
+    |- node_modules
+    |- reducers
+        |-- idnex.js
+        |-- posts.js
+        |-- toolbox.js
+    |- views
+    	  |-- home
+            |-- index.js
+            `-- index.hbs
+    	  |-- posts
+            |-- row-items		  
+            |		|-- index.js
+            |		`-- index.hbs
+            |-- index.js
+            `-- index.hbs		  
+    |-- index.html
+    |-- main.js
+    |- .babelrc
+    |- README.md
+    |- package.json
+    |- webpack.config.js
 ```
 
-
-생성된 파일을 확인하기 위해서는 로컬서버를 통해서 확인가능합니다. 간단한 서버를 위해서 '[http-server](https://www.npmjs.com/package/http-server)' 를 다운받습니다. 
+빌드된 결과를 확인하기 위해서는 간단하게 로컬서버를 동작시켜 확인 가능합니다. 
+***[http-server](https://www.npmjs.com/package/http-server)*** 를 다운받으세요. 
 
 ```
 npm install -g http-server
@@ -153,6 +195,8 @@ http-server
 
 ## 로컬세팅
 
+Woowahan-cli는 오픈소스입니다. Woowahan-cli를 다운받아 원하는 기능을 추가하시거나 내부 구조를 확인하실수 있습니다. 
+
 ```
 git clone https://github.com/woowabros/woowahan-cli.git
 cd woowahan-cli
@@ -160,6 +204,6 @@ npm link
 
 ```
 
-로컬상태에서 woowahan-cli를 사용하실 수 있습니다.
+로컬상태에서 Woowahan-cli를 사용하실 수 있습니다.
 
 
