@@ -8,16 +8,22 @@ var commonConfig = {
     rules: [
       {
         test: /\.js$/,
-        exclude: [ /node_modules/ ],
-        loader: 'babel-loader',
-        options: {
-          presets: [ 'es2015' ]
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [ 'es2015' ]
+            }
+          }
+        ]
       },
       {
         test: /\.hbs$/,
-        exclude: /node_modules/,
-        loader: 'handlebars-loader'
+        use: [
+          {
+            loader: 'handlebars-loader'
+          }
+        ]
       }
     ]
   }
