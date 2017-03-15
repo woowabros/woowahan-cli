@@ -6,9 +6,9 @@ Woowahan.js의 command line utility 입니다.
 
 ## 구성요소
 - WoowahanJS
-- Webpack
+- Webpack2
 - Babel
-- Bootstrap
+- Bootstrap3
 
 ## 설치 
 
@@ -58,7 +58,7 @@ woowahan-cli view viewName < option >
 ``` 
 
 option :
-  - no-option : 기본 뷰 생성
+  - default : 기본 뷰 생성
   - -c, --collection : 콜렉션뷰 생성
  
 #### 4. reducer
@@ -141,43 +141,43 @@ App
         |-- icon.jpg
     |-- bundle.js
     |-- index.html
-    |- actions
-    	  |-- index.js
-    |- assets
-        |-- css
-            |-- default.scss
-            |-- bootstrap.3.3.7.min.scss
-        |-- images
-            |-- icon.jpg
-    |- config
-        |-- common.js
-        |-- development.js
+|- actions
+	  |-- index.js
+|- assets
+    |-- css
+        |-- default.scss
+        |-- bootstrap.3.3.7.min.scss
+    |-- images
+        |-- icon.jpg
+|- config
+    |-- common.js
+    |-- development.js
+    |-- index.js
+    |-- production.js
+|- layouts
+    |-- default.js
+    `-- default.hbs
+|- node_modules
+|- reducers
+    |-- idnex.js
+    |-- posts.js
+    |-- toolbox.js
+|- views
+	  |-- home
         |-- index.js
-        |-- production.js
-    |- layouts
-        |-- default.js
-        `-- default.hbs
-    |- node_modules
-    |- reducers
-        |-- idnex.js
-        |-- posts.js
-        |-- toolbox.js
-    |- views
-    	  |-- home
-            |-- index.js
-            `-- index.hbs
-    	  |-- posts
-            |-- row-items		  
-            |		|-- index.js
-            |		`-- index.hbs
-            |-- index.js
-            `-- index.hbs		  
-    |-- index.html
-    |-- main.js
-    |- .babelrc
-    |- README.md
-    |- package.json
-    |- webpack.config.js
+        `-- index.hbs
+	  |-- posts
+        |-- row-items		  
+        |		|-- index.js
+        |		`-- index.hbs
+        |-- index.js
+        `-- index.hbs		  
+|-- index.html
+|-- main.js
+|- .babelrc
+|- README.md
+|- package.json
+|- webpack.config.js
 ```
 
 빌드된 결과를 확인하기 위해서는 간단하게 로컬서버를 동작시켜 확인 가능합니다. 
@@ -195,7 +195,7 @@ http-server
 
 ## 로컬세팅
 
-Woowahan-cli는 오픈소스입니다. Woowahan-cli를 다운받아 원하는 기능을 추가하시거나 내부 구조를 확인하실수 있습니다. 
+Woowahan-cli는 오픈소스입니다. Woowahan-cli를 다운받아 원하는 기능을 추가하시거나 내부 구조를 확인할 수 있습니다. 
 
 ```
 git clone https://github.com/woowabros/woowahan-cli.git

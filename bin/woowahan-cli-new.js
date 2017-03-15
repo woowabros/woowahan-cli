@@ -18,16 +18,6 @@ program
 CLIConfig.projectName = program.args[PROJECT_NAME];
 CLIConfig.projectPath = path.resolve('.', CLIConfig.projectName);
 
-if (validate.hasUpperCase(CLIConfig.projectName)) {
-  var messages = [
-    `Could not create a project called ${chalk.red(CLIConfig.projectName)} because of npm naming restrictions:`,
-    chalk.red('* name can no longer contain capital letters')
-  ];
-
-  ui.error(messages);
-  process.exit();
-}
-
 if (validate.isExist(CLIConfig.projectPath)) {
   ui.error(chalk.red(`'${CLIConfig.projectName}' exists!`));
   process.exit();

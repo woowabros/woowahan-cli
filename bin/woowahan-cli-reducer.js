@@ -21,7 +21,7 @@ if (!validate.isProjectRoot()) {
 }
 
 if (!program.args[ACTION_NAME]) {
-  ui.error(`woowahan-cli reducer ${program.args[REDUCER_NAME]} ${chalk.red(' ActionName(Required)')}`);
+  ui.error(`woowahan-cli reducer ${program.args[REDUCER_NAME]} ${chalk.red('"ActionName" (Required)')}`);
   process.exit();
 }
 

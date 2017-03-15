@@ -1,5 +1,5 @@
 var path = require('path');
-var copy = require('copy-webpack-plugin');
+var Copy = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
 var packageJson = require('../package.json');
@@ -18,7 +18,7 @@ var buildConfig = {
         'NODE_ENV': JSON.stringify('development')
       }
     }),
-    new copy(
+    new Copy(
       [
         { from: 'assets' }
       ], 
