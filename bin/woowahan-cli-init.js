@@ -4,7 +4,7 @@
 var program = require('commander');
 var path = require('path');
 var chalk = require('chalk');
-var manifestManager = require('../lib/manifest-manager');
+var createManifest = require('../lib/manifest');
 var currentDirectories = process.cwd().split('/');
 var CLI = require('../lib/cli-task');
 var CLIConfig = {};
@@ -18,7 +18,7 @@ CLIConfig.projectPath = path.resolve('.');
 
 Promise
   .resolve(CLIConfig)
-  .then(manifestManager)
+  .then(createManifest)
   .then(CLI.prepareWork)
   .then(CLI.readTemplateFiles)
   .then(CLI.writeTemplateFiles)

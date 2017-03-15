@@ -8,6 +8,7 @@ var commonConfig = {
     rules: [
       {
         test: /\.js$/,
+        exclude: [ /node_modules/ ],
         use: [
           {
             loader: 'babel-loader',
@@ -19,6 +20,7 @@ var commonConfig = {
       },
       {
         test: /\.hbs$/,
+        exclude: [ /node_modules/ ],
         use: [
           {
             loader: 'handlebars-loader'

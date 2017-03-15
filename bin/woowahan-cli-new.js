@@ -5,7 +5,7 @@ var PROJECT_NAME = 0;
 var path = require('path');
 var program = require('commander');
 var chalk = require('chalk');
-var manifestManager = require('../lib/manifest-manager');
+var createManifest = require('../lib/manifest');
 var validate = require('../lib/validate');
 var ui = require('../lib/ui');
 var CLI = require('../lib/cli-task');
@@ -24,7 +24,7 @@ if (validate.isExist(CLIConfig.projectPath)) {
 }
 
 Promise.resolve(CLIConfig)
-  .then(manifestManager)
+  .then(createManifest)
   .then(CLI.prepareWork)
   .then(CLI.readTemplateFiles)
   .then(CLI.writeTemplateFiles)
