@@ -74,11 +74,11 @@ woowahan-cli reducer reducerName actionName
 ```
 App
 |- actions
-	  |-- index.js
+    |-- index.js
 |- assets
     |-- css
         |-- default.scss
-        |-- bootstrap.3.3.7.min.scss
+        `-- bootstrap.3.3.7.min.scss
     |-- images
         |-- icon.jpg
 |- config
@@ -93,17 +93,17 @@ App
 |- reducers
     |-- idnex.js
     |-- posts.js
-    |-- toolbox.js
+    `-- toolbox.js
 |- views
-	  |-- home
-        |-- index.js
-        `-- index.hbs
-	  |-- posts
-        |-- row-items		  
-        |		|-- index.js
-        |		`-- index.hbs
-        |-- index.js
-        `-- index.hbs		  
+    |-- home
+      |-- index.js
+      `-- index.hbs
+    |-- posts
+      |-- row-items		  
+    		|-- index.js
+    		`-- index.hbs
+      |-- index.js
+      `-- index.hbs		  
 |-- index.html
 |-- main.js
 |- .babelrc
@@ -136,17 +136,17 @@ App
 |- dist
     |-- css
         |-- default.scss
-        |-- bootstrap.3.3.7.min.scss
+        `-- bootstrap.3.3.7.min.scss
     |-- images
         |-- icon.jpg
     |-- bundle.js
-    |-- index.html
+    `-- index.html
 |- actions
-	  |-- index.js
+    |-- index.js
 |- assets
     |-- css
         |-- default.scss
-        |-- bootstrap.3.3.7.min.scss
+        `-- bootstrap.3.3.7.min.scss
     |-- images
         |-- icon.jpg
 |- config
@@ -161,17 +161,17 @@ App
 |- reducers
     |-- idnex.js
     |-- posts.js
-    |-- toolbox.js
+    `-- toolbox.js
 |- views
-	  |-- home
-        |-- index.js
-        `-- index.hbs
-	  |-- posts
-        |-- row-items		  
-        |		|-- index.js
-        |		`-- index.hbs
-        |-- index.js
-        `-- index.hbs		  
+    |-- home
+      |-- index.js
+      `-- index.hbs
+    |-- posts
+      |-- row-items		  
+    		|-- index.js
+    		`-- index.hbs
+      |-- index.js
+      `-- index.hbs		  
 |-- index.html
 |-- main.js
 |- .babelrc
