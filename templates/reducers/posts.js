@@ -7,7 +7,7 @@ export const fetchPosts = Woowahan.Reducer.create(FETCH_POSTS, function(options)
   this.use(Woowahan.Reducer.FAIL, failHandler);
 
   this.onSuccess = function(response) {
-		this.finish(null, response);
+    this.finish(null, response);
   };
 
   ajax.get(this, 'https://jsonplaceholder.typicode.com/posts');

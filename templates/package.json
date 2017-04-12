@@ -1,14 +1,14 @@
 {
-  "name": "App10",
+  "name": "",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/main.js",
+  "main": "./main.js",
   "scripts": {
     "dev": "NODE_ENV=development ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./webpack.config.js --inline",
     "build": "NODE_ENV=production ./node_modules/webpack/bin/webpack.js --progress --config ./webpack.config.js"
   },
   "author": "",
-  "license": "MIT",
+  "license": "",
   "repository": {
     "type": "git",
     "url": ""
