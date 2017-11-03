@@ -4,7 +4,7 @@
   "description": "A simple CLI for scaffolding WoowahanJS projects",
   "preferGlobal": true,
   "bin": {
-    "woowahan-cli": "./bin/cli"
+    "woowahan-cli": "./bin/cli.js"
   },
   "engines": {
     "node": ">=6.0.0"
